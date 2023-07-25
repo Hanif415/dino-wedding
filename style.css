@@ -7,7 +7,7 @@
 body {
     font-size: 1.2rem;
     font-family: 'Work Sans', sans-serif;
-    min-height: 2000px;
+    min-height: 4000px;
 }
 
 .hero::before {
@@ -19,6 +19,8 @@ body {
     height: 100%;
     background-image: url(img/wedding.jpg);
     z-index: -1;
+    background-size: cover;
+    background-position: center;
     filter: grayscale();
     text-shadow: var(--shadow);
 }
@@ -57,6 +59,14 @@ body {
 .hero a:hover {
     background-color: var(--pink);
     color: white;
+}
+
+.mynavbar {}
+
+.mynavbar .navbar-brand,
+.mynavbar .offcanvas-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 3.2rem;
 }
 
 /* Media Query */
