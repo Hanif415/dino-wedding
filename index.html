@@ -432,7 +432,11 @@
 
     <script>
         const rootElement = document.querySelector(":root");
-        const audoIconWrapper = document.querySelector('.audio-icon-wrapper');
+        const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+        const audioIcon = document.querySelector('.audio-icon-wrapper i');
+        const song = document.querySelector('#song');
+        let isPlaying = false;
+
         function disableScroll() {
             scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -453,10 +457,24 @@
         }
 
         function playAudio() {
-            const song = document.querySelector('#song');
-            song.volume = 0.9;
-            audoIconWrapper.style.display = 'flex';
+            song.volume = 0.7;
+            audioIconWrapper.style.display = 'flex';
             song.play();
+            isPlaying = true;
+        }
+
+        audioIconWrapper.onclick = function () {
+            if (isPlaying) {
+                song.pause();
+                audioIcon.classList.remove('bi-disc');
+                audioIcon.classList.add('bi-pause-circle');
+            } else {
+                song.play();
+                audioIcon.classList.remove('bi-pause-circle');
+                audioIcon.classList.add('bi-disc');
+            }
+
+            isPlaying = !isPlaying;
         }
 
         // if (!localStorage.getItem('opened')) {
